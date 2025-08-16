@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+</head>
+<body>
+    <%- include("partials/login.ejs") %>
+    This is the message board.
+
+    <ul>
+        <% for (let i=0; i<locals.messages.length;i++) { %>
+            <li> 
+                <h3> <%= locals.messages[i].header %> </h3> 
+                
+                <% if (locals.currentUser) { %>  
+                <h5> posted by <%= locals.messages[i].firstname %> <%= locals.messages[i].lastname %>  (<%= locals.messages[i].username %>) on <%= locals.messages[i].date %></h5>
+                <%}%>
+
+                <p> <%= locals.messages[i].body %> </p>
+
+                <% if (locals.currentUser) { %>  
+                    <% if (locals.currentUser.isadmin) { %>  
+                    <h6> Click <a href="/post/delete/<%= + locals.messages[i].id %>" >here </a> to delete this message </h6>
+                <%}}%>
+            </li>
+        <%}%>
+    </ul>
+</body>
+</html>

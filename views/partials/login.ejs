@@ -1,0 +1,8 @@
+<% if (locals.currentUser) {%>
+    <h3>WELCOME BACK <%=currentUser.firstname%> <%=currentUser.lastname%> </h1>
+    <p><a href="post"> Click here to post</a></p>
+
+    <p><a href="logout"> Click here to log out</a></p>
+<% } else { %>
+    <p><a href="login"> Click here to log in</a></p>
+<% } %>

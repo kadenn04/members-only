@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+</head>
+<body>
+    <h1>Log In</h1>
+    <%- include("partials/loginerrors.ejs") %>
+    <form action="/login" method="POST">
+        <p>
+            <label for="username">Username </label>
+            <input id="username" name="username" placeholder="johndoe@gmail.com" type="username" value = "<%=locals.existingUsername %>" />
+        </p>
+
+        <p>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" value = "<%=locals.existingPassword %>"/>
+        </p>
+        <p>
+            <button type ="submit">Log In</button>
+        </p>
+    </form>
+    <a href="/signup"> Don't have an account? </a>
+</body>
+</html>
